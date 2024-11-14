@@ -1,7 +1,7 @@
-package de.openvalue.modernjava.workshop.web.controller;
+package de.openvalue.modernjava.workshop.solution.web.controller;
 
-import de.openvalue.modernjava.workshop.service.AudioBookService;
-import de.openvalue.modernjava.workshop.service.BookService;
+import de.openvalue.modernjava.workshop.solution.service.AudioBookService;
+import de.openvalue.modernjava.workshop.solution.service.BookService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,10 +27,12 @@ class LibraryRestControllerTest {
 
     @Test
     void createBookValidation() throws Exception {
-        String json = "{" +
-                      "    \"title\": \"\"," +
-                      "    \"author\": \"some-author\"" +
-                      "}";
+        String json = """
+                        {
+                            "title": "",
+                            "author": "some-author"
+                        }
+                        """;
 
 
         mockMvc
@@ -43,10 +45,12 @@ class LibraryRestControllerTest {
 
     @Test
     void createBook() throws Exception {
-        String json = "{" +
-                      "    \"title\": \"some-title\"," +
-                      "    \"author\": \"some-author\"" +
-                      "}";
+        String json = """
+                        {
+                            "title": "some-title",
+                            "author": "some-author"
+                        }
+                        """;
 
         when(bookService.createBook(any(), any())).thenReturn(1L);
 
@@ -61,11 +65,13 @@ class LibraryRestControllerTest {
 
     @Test
     void createAudioBookValidation() throws Exception {
-        String json = "{" +
-                      "    \"title\": \"\"," +
-                      "    \"author\": \"some-author\"," +
-                      "    \"speaker\": \"some-speaker\"" +
-                      "}";
+        String json = """
+                        {
+                            "title": "",
+                            "author": "some-author",
+                            "speaker": "some-speaker"
+                        }
+                        """;
 
         mockMvc
                 .perform(
@@ -77,11 +83,13 @@ class LibraryRestControllerTest {
 
     @Test
     void createAudioBook() throws Exception {
-        String json = "{" +
-                      "    \"title\": \"some-title\"," +
-                      "    \"author\": \"some-author\"," +
-                      "    \"speaker\": \"some-speaker\"" +
-                      "}";
+        String json = """
+                        {
+                            "title": "some-title",
+                            "author": "some-author",
+                            "speaker": "some-speaker"
+                        }
+                        """;
 
         when(audioBookService.createAudioBook(any(), any(), any())).thenReturn(1L);
 

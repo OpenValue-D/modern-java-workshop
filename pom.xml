@@ -12,6 +12,7 @@
     <modules>
         <module>java-examples</module>
         <module>java-workshop</module>
+        <module>java-workshop-solution</module>
         <module>kotlin-examples</module>
     </modules>
 

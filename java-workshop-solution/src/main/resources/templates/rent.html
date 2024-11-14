@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <span th:replace="fragments/general/css.html"></span>
+</head>
+<body>
+<span th:replace="fragments/nav.html"></span>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-10 col-12 text-center">
+            <div class="row justify-content-center">
+                <h1>Rent something</h1>
+            </div>
+
+            <div class="row justify-content-center">
+                <h2>Books</h2>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col"> ID</th>
+                        <th scope="col"> Title</th>
+                        <th scope="col"> Author</th>
+                        <th scope="col"> Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${books.empty}">
+                        <td colspan="6">No Books Available</td>
+                    </tr>
+                    <tr th:each="book: ${books}">
+                        <td scope="row"><span th:text="${book.id}"> ID </span></td>
+                        <td><span th:text="${book.title}"> Title </span></td>
+                        <td><span th:text="${book.author}"> Author </span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
+                                <span><a class="btn btn-secondary"
+                                         th:href="@{/rentable/{id}/rent(id=${book.id})}">
+                                    <i class="far fa-edit"></i>
+                                    Rent
+                                </a></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row justify-content-center">
+                <h2>Audiobooks</h2>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col"> ID</th>
+                        <th scope="col"> Title</th>
+                        <th scope="col"> Author</th>
+                        <th scope="col"> Speaker</th>
+                        <th scope="col"> Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${audiobooks.empty}">
+                        <td colspan="6">No Audioooks Available</td>
+                    </tr>
+                    <tr th:each="audiobook: ${audiobooks}">
+                        <td scope="row"><span th:text="${audiobook.id}"> ID </span></td>
+                        <td><span th:text="${audiobook.title}"> Title </span></td>
+                        <td><span th:text="${audiobook.speaker}"> Speaker </span></td>
+                        <td><span th:text="${audiobook.author}"> Author </span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
+                                <span><a class="btn btn-secondary"
+                                         th:href="@{/rentable/{id}/rent(id=${audiobook.id})}">
+                                    <i class="far fa-edit"></i>
+                                    Rent
+                                </a></span>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<span th:replace="fragments/general/js.html"></span>
+</body>
+</html>
