@@ -18,13 +18,12 @@ Understanding and using the most recent changes in the Java ecosystem
 ---
 ### Prerequisites for this Workshop
 - the workshop repository
-    - TODO
+    - [https://github.com/OpenValue-D/modern-java-workshop](https://github.com/OpenValue-D/modern-java-workshop)
 - an IDE, preferably IntelliJ IDEA
 - Java 21
     - sdkman on mac or linux
         - https://sdkman.io/
     - azul zulu or any other openjdk distribution on windows
-        - https://www.azul.com/downloads?package=jdk#zulu
 
 ---
 ### What are your expectations?
